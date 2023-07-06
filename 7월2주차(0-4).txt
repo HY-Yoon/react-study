@@ -1,0 +1,62 @@
+* 프레임워크(Angular 등)
+- Routing, UI, State management, HTTP Clients 등 골격이 정해져있음
+- ex) 
+- 단점 : 진입장벽, 자율성 ↓
+
+* 라이브러리(React 등)
+- 필요할 때 원하는 것을 골라 사용할 수 있음
+- 진입장벽 ↓
+
+React
+- UI를 컴포넌트 단위로 보여주고 이벤트로 반응하는 라이브러리
+- 독립적/고립적/재사용성 ↑
+- 다른 컴포넌트와 연결되지 않고 내부에서는 응집도가 높은 컴포넌트가 좋다
+
+* 컴포넌트 분리 기준
+- 재사용성 : DRY(Don't Repeat Yourself)
+- 단일책임 : SR(Single Responsibility)
+
+* Hooks(함수들)은 값의 재사용이 아니라 로직의 재사용을 위해 사용
+
+
+<4강>
+- CSR(클라이언트 사이드 렌더링)
+: 기본은 빈 HTML,브라우저에서 필요한 요소를 동적으로 생성
+
+- React.StrictMode
+: 엄격한 모드 개발. 배포할 땐 꺼짐
+
+
+- React의 함수형 컴포넌트 
+1) 함수의 이름은 대문자로 시작한다.(필수)
+2) JSX문법을 사용해 어떻게 표현할지 return 한다.(필수)
+3) props와 state를 사용한다.(필수 X)
+
+- JSX사용 시 유의사항
+1) 다수의 태그를 감싸 꼭 하나의 태그만 반환한다.
+  (빈 태그 또는 Fragment를 사용 -> 브라우저 HTML에 흔적 없이 그룹화 가능)
+2) class가 아닌 className으로 사용
+3) HTML처럼 작성하고 있지만 js 코드를 작성할땐 중괄호 사용
+
+* 리액트 파일은 .jsx 확장자를 권장
+
+* event
+- onClick으로 함수를 전달할 때 함수의 이름(참조값)만 전달해야함.
+   만약 함수를 호출하면 onClick호출을 하지 않음에도 끊임없이 동작
+
+* 내부 상태관리 state
+- ui와 관련있는 data는 state에 저장(useState(초기값))
+- useState : 변경 가능한 value, value를 업데이트 할 수 있는 함수 return
+- 컴포넌트끼리 공통적인 데이터는 가장 근접한 부모 컴포넌트에 위치
+
+*** setState를 props로 전달하기(비권장)
+- 외부에 데이터 변경의 주도권을 넘겨두는 것과 같다.
+- 콜백함수로 감싸 넘기고 자식 컴포넌트가 적절한 시점에 호출만 하도록 권장.
+
+* useEffect 생애주기
+- 컴포넌트가 mount될 때 fetch 또는 무거운 작업/dependency가 변경될 때 fetch 또는 무거운 작업을 할 때 유용하게 사용
+- useEffect(함수+ return(unmount 될 때 동작할 함수), [dependency])
+
+
+
+
